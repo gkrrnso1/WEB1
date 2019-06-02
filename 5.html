@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>연습</title>
+	<style type="text/css">
+	body { background-color: #0404B4}
+	</style>
+</head>
+
+<div id="green" class="top-droppable" style="width: 200px; height: 100px; z-index: 1; position: absolute; left: 100px; top: 100px; background-color: green"></div>
+<div id="yellow" class="top-droppable" style="width: 200px; height: 100px; z-index: 2; position: absolute; left: 140px; top: 120px; background-color: yellow"></div>
+<div id="red" class="top-droppable" style="width: 200px; height: 100px; z-index: 3; position: absolute; left: 180px; top: 140px; background-color: red"></div>
+
+<div id="draggable" style="width: 50px; height: 50px; z-index: 4; position: absolute; left: 400px; top: 140px; background-color: blue"></div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="../jquery.top-droppable.js"></script>
+
+
+<script>
+
+$(function() {
+
+	$("#draggable").draggable({
+	    revert: true
+	});
+
+
+	$(".top-droppable").topDroppable({
+	    drop: function (e, ui) {
+	        alert("dropped into " + $(this).attr('id'));
+	    }
+	}).droppable({
+	    tolerance: "pointer"
+	});
+
+});
+
+</script>
+<body>
+    <h1 style="color:#0404B4">컬러 차트</h1>
+    <iframe autoplay width="300" height="300" src="https://t1.daumcdn.net/cfile/tistory/2132273855A3088717"></iframe>
+    <iframe src="https://t1.daumcdn.net/cfile/tistory/266AD33455A307B704"></iframe>    
+    <img width="600" height="600" src="http://blogfiles.naver.net/20100415_256/mangnani01_1271316183516ljd4N_jpg/2040969889_qkq471xg_03_mangnani01.jpg">
+</body>
+
+
+</html>
